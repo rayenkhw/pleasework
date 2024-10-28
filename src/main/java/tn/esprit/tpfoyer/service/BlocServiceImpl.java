@@ -34,16 +34,10 @@ public class BlocServiceImpl  implements IBlocService {
     @Transactional
     public List<Bloc> retrieveBlocsSelonCapacite(long c) {
 
-        List<Bloc> listB = blocRepository.findAll();
-        List<Bloc> listBselonC = new ArrayList<>();
+        return blocRepository.findAll();
 
-        for (Bloc b: listB) {
-            if (b.getCapaciteBloc()>=c)
-                listBselonC.add(b);
 
-        }
 
-        return listBselonC;
     }
 
     @Transactional
