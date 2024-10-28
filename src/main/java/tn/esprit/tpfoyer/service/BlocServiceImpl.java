@@ -40,6 +40,7 @@ public class BlocServiceImpl  implements IBlocService {
         for (Bloc b: listB) {
             if (b.getCapaciteBloc()>=c)
                 listBselonC.add(b);
+
         }
 
         return listBselonC;

@@ -23,6 +23,7 @@ public class Bloc {
     long idBloc;
 
     String nomBloc;
+    @Getter
     long capaciteBloc;
 
     @ManyToOne(cascade = CascadeType.ALL)
