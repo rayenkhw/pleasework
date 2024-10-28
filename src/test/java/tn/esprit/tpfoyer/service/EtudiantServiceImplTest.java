@@ -32,7 +32,6 @@ public class EtudiantServiceImplTest {
     @BeforeEach
     public void setup() {
         etudiant = new Etudiant();
-        etudiant.setCinEtudiant(12345678L);
     }
 
     @Test
