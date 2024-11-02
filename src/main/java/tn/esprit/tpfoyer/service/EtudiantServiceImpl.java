@@ -9,7 +9,6 @@ import tn.esprit.tpfoyer.repository.EtudiantRepository;
 import java.util.List;
 
 @Service
-@AllArgsConstructor
 public class EtudiantServiceImpl implements IEtudiantService {
 
 

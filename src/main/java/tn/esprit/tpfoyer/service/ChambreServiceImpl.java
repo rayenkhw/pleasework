@@ -11,8 +11,6 @@ import tn.esprit.tpfoyer.repository.ChambreRepository;
 import java.util.List;
 
 @Service
-@AllArgsConstructor
-@Slf4j
 public class ChambreServiceImpl implements IChambreService {
 
     ChambreRepository chambreRepository;
