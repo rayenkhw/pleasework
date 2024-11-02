@@ -15,7 +15,7 @@ services:
       retries: 5
 
   spring-boot-app:
-    image: rayenkh98/tp-foyer
+    image: rayenkh98/devops
     environment:
       SPRING_DATASOURCE_URL: "jdbc:mysql://mysql:3306/db?createDatabaseIfNotExist=true"
       SPRING_DATASOURCE_USERNAME: "root"

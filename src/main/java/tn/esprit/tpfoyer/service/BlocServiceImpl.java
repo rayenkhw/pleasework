@@ -21,7 +21,8 @@ public class BlocServiceImpl  implements IBlocService {
 
     @Override
     public List<Bloc> retrieveAllBlocs() {
-        return List.of();
+        Bloc Bloc = new Bloc();
+        return List.of(Bloc);
     }
 
     @Transactional
@@ -29,9 +30,8 @@ public class BlocServiceImpl  implements IBlocService {
         return blocRepository.findById(blocId).get();
     }
     public Bloc addBloc(Bloc c) {
-        Bloc bloc = new Bloc();
-        bloc = blocRepository.save(c);
-        return bloc;
+        return  blocRepository.save(c);
+
     }
 
     public Bloc modifyBloc(Bloc bloc) {
