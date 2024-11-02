@@ -30,16 +30,6 @@ public class EtudiantRestController {
 
 
 
-
-
-
-    @GetMapping("/retrieve-etudiant-cin/{cin}")
-    public Etudiant retrieveEtudiantParCin(@PathVariable("cin") Long cin) {
-        Etudiant etudiant = etudiantService.recupererEtudiantParCin(cin);
-        return etudiant;
-    }
-
-
     @GetMapping("/retrieve-etudiant/{etudiant-id}")
     public Etudiant retrieveEtudiant(@PathVariable("etudiant-id") Long chId) {
         Etudiant etudiant = etudiantService.retrieveEtudiant(chId);

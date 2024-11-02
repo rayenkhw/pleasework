@@ -29,10 +29,7 @@ public class EtudiantServiceImpl implements IEtudiantService {
     public void removeEtudiant(Long etudiantId) {
         etudiantRepository.deleteById(etudiantId);
     }
-    public Etudiant recupererEtudiantParCin(long cin)
-    {
-        return etudiantRepository.findEtudiantByCinEtudiant(cin);
-    }
+
 
 
 

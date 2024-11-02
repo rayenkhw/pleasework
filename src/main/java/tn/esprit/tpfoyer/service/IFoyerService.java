@@ -12,6 +12,4 @@ public interface IFoyerService {
     public void removeFoyer(Long foyerId);
     public Foyer modifyFoyer(Foyer foyer);
 
-    // Here we will add later methods calling keywords and methods calling JPQL
-
 }

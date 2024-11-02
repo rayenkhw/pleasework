@@ -20,29 +20,25 @@ public class BlocRestController {
     @Autowired
     public IBlocService blocService;
 
-
     //http://localhost:8089/tpfoyer/bloc/retrieve-all-blocs
-
     @GetMapping("/retrieve-all-blocs")
     public List<Bloc> getBlocs() {
         return blocService.retrieveAllBlocs();
         //return listBlocs;
     }
 
-
-    // http://localhost:8089/tpfoyer/bloc/retrieve-bloc/8
+    // http://localhost:8089/tpfoyer/bloc/retrieve-bloc/1
     @GetMapping("/retrieve-bloc/{bloc-id}")
     public Bloc retrieveBloc(@PathVariable("bloc-id") Long bId) {
         Bloc bloc = blocService.retrieveBloc(bId);
         return bloc;
-
     }
 
     // http://localhost:8089/tpfoyer/bloc/add-bloc
     @PostMapping("/add-bloc")
     public Bloc addBloc(@RequestBody Bloc c) {
-        Bloc bloc = blocService.addBloc(c);
-        return bloc;
+        return blocService.addBloc(c);
+
     }
 
     // http://localhost:8089/tpfoyer/bloc/remove-bloc/{bloc-id}
@@ -58,19 +54,5 @@ public class BlocRestController {
         return bloc;
     }
 
-    @GetMapping("/trouver-blocs-sans-foyer")
-    public List<Bloc> getBlocswirhoutFoyer() {
-        List<Bloc> listBlocs = blocService.trouverBlocsSansFoyer();
-        return listBlocs;
-    }
-
-    @GetMapping("/get-bloc-nb-c/{nb}/{c}")
-    public List<Bloc> recuperBlocsParNomEtCap(
-            @PathVariable("nb") String nb,
-            @PathVariable("c") long c) {
-
-        return blocService.trouverBlocsParNomEtCap(nb, c);
-
-    }
 
 }

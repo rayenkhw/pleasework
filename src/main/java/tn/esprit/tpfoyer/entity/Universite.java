@@ -15,14 +15,9 @@ public class Universite {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    long idUniversite;
-
-    String nomUniversite;
-
-    String adresse;
-
-    @OneToOne(cascade = CascadeType.ALL)
-    Foyer foyer;
+    private Long idUniversity;
+    private String NomFoyer;
+    private String Adresse;
 
 }
 

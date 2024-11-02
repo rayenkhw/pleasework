@@ -23,7 +23,7 @@ public class ChambreRestController {
     }
 
 
-
+// http://localhost:8089/tpfoyer/chambre/retrieve-chambre/{chambre-id}
     @GetMapping("/retrieve-chambre/{chambre-id}")
     public Chambre retrieveChambre(@PathVariable("chambre-id") Long chId) {
         Chambre chambre = chambreService.retrieveChambre(chId);
@@ -51,34 +51,7 @@ public class ChambreRestController {
     }
 
 
-    @GetMapping("/trouver-chambres-selon-typ/{tc}")
-    public List<Chambre> trouverChSelonTC(@PathVariable("tc") TypeChambre tc)
-    {
-        return chambreService.recupererChambresSelonTyp(tc);
-    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // http://localhost:8089/tpfoyer/chambre/retrieve-chambre/8
-    @GetMapping("/trouver-chambre-selon-etudiant/{cin}")
-    public Chambre trouverChSelonEt(@PathVariable("cin") long cin) {
-        Chambre chambre = chambreService.trouverchambreSelonEtudiant(cin);
-        return chambre;
-    }
 
 
 }

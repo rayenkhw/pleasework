@@ -8,6 +8,4 @@ import tn.esprit.tpfoyer.entity.Universite;
 @Repository
 public interface UniversiteRepository extends JpaRepository<Universite, Long>
 {
-
-
 }

@@ -8,6 +8,7 @@ import tn.esprit.tpfoyer.entity.Chambre;
 import tn.esprit.tpfoyer.entity.TypeChambre;
 import tn.esprit.tpfoyer.repository.ChambreRepository;
 
+
 import java.util.List;
 
 @Service
@@ -34,45 +35,11 @@ public class ChambreServiceImpl implements IChambreService {
         return c;
     }
 
+
     public void removeChambre(Long chambreId) {
         chambreRepository.deleteById(chambreId);
     }
 
 
 
-
-
-
-
-    public List<Chambre> recupererChambresSelonTyp(TypeChambre tc)
-    {
-        return chambreRepository.findAllByTypeC(tc);
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    public Chambre trouverchambreSelonEtudiant(long cin) {
-       //
-
-        return chambreRepository.trouverChselonEt(cin);
-    }
 }

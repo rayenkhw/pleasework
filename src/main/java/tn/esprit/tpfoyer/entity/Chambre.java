@@ -1,10 +1,11 @@
 package tn.esprit.tpfoyer.entity;
 
-
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
+import lombok.extern.slf4j.Slf4j;
 
+import java.io.Serializable;
 import java.util.Set;
 
 
@@ -12,26 +13,21 @@ import java.util.Set;
 @Getter
 @Setter
 @AllArgsConstructor
-@NoArgsConstructor
 @ToString
-@FieldDefaults(level = AccessLevel.PRIVATE)
-public class Chambre {
+@NoArgsConstructor
+public class Chambre implements Serializable {
 
+
+    //properties
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    long idChambre;
+    private Long idChambre;
+    private Long NumeroChambre;
+    public enum TypeChambre {
+        Simple, Double, Triple
+    }
+    @Enumerated(EnumType.ORDINAL)
+    private TypeChambre typeC;
 
-    long numeroChambre;
-
-    @Enumerated(EnumType.STRING)
-    TypeChambre typeC;
-
-
-
-    @OneToMany
-    Set<Reservation> reservations;
-
-    @ManyToOne(cascade = CascadeType.ALL)
-    Bloc bloc;
 
 }

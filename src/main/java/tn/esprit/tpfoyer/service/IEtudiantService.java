@@ -11,7 +11,7 @@ public interface IEtudiantService {
     public Etudiant addEtudiant(Etudiant c);
     public void removeEtudiant(Long etudiantId);
     public Etudiant modifyEtudiant(Etudiant etudiant);
-    public Etudiant recupererEtudiantParCin(long cin);
+
 
 
 }

@@ -32,25 +32,6 @@ public class ReservationRestController {
 
 
 
-
-
-
-    @GetMapping("/retrieve-reservation-date-status/{d}/{v}")
-    public List<Reservation> retrieveReservationParDateEtStatus
-            (@PathVariable("d") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date d, @PathVariable("v") boolean b) {
-        return reservationService.trouverResSelonDateEtStatus(d, b);
-    }
-
-
-
-
-
-
-
-
-
-
-
     // http://localhost:8089/tpfoyer/reservation/add-reservation
     @PostMapping("/add-reservation")
     public Reservation addReservation(@RequestBody Reservation r) {
