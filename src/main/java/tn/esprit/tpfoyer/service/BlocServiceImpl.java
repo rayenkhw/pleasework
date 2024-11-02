@@ -11,10 +11,13 @@ public class BlocServiceImpl  implements IBlocService {
 
     BlocRepository blocRepository;
 
+    public BlocServiceImpl(BlocRepository blocRepository) {
+        this.blocRepository = blocRepository;
+    }
+
     @Override
     public List<Bloc> retrieveAllBlocs() {
-        Bloc Bloc = new Bloc();
-        return List.of(Bloc);
+        return blocRepository.findAll();
     }
 
     @Transactional

@@ -26,31 +26,8 @@ import java.util.List;
     List<Bloc> findAllByNomBlocAndCapaciteBloc (String nom , long capacite );
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    /* No need to code CRUD here. Its is already in the
-    interfaces provided by the framework Spring Data JPA :
-       - CrudRepository or
-       - PagingAndSortingRepository or
-       - JpaRepository
-     */
-
-
     Bloc findBlocByNomBlocAndCapaciteBlocGreaterThan(String nb, long c);
 
-    // List des blocs non affectés à aucun foyer :
     List<Bloc> findAllByFoyerIsNull();
 
 
