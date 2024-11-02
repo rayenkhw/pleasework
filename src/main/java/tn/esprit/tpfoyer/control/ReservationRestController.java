@@ -14,7 +14,7 @@ import java.util.List;
 @RequestMapping("/reservation")
 public class ReservationRestController {
 
-    IReservationService reservationService;
+    public IReservationService reservationService;
 
     // http://localhost:8089/tpfoyer/reservation/retrieve-all-reservations
     @GetMapping("/retrieve-all-reservations")

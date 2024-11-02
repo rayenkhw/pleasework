@@ -12,7 +12,7 @@ import java.util.List;
 @RequestMapping("/universite")
 public class UniversiteRestController {
 
-    IUniversiteService universiteService;
+    public IUniversiteService universiteService;
 
     // http://localhost:8089/tpfoyer/universite/retrieve-all-universites
     @GetMapping("/retrieve-all-universites")

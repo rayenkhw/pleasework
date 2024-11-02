@@ -12,7 +12,7 @@ import java.util.List;
 @RequestMapping("/foyer")
 public class FoyerRestController {
 
-    IFoyerService foyerService;
+    public IFoyerService foyerService;
 
     // http://localhost:8089/tpfoyer/foyer/retrieve-all-foyers
     @GetMapping("/retrieve-all-foyers")

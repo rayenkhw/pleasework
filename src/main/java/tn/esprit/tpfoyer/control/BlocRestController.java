@@ -18,7 +18,7 @@ import java.util.List;
 public class BlocRestController {
 
     @Autowired
-    IBlocService blocService;
+    public IBlocService blocService;
 
 
     //http://localhost:8089/tpfoyer/bloc/retrieve-all-blocs

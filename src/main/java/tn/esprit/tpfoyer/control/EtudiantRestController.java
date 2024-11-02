@@ -13,7 +13,7 @@ import java.util.List;
 @RequestMapping("/etudiant")
 public class EtudiantRestController {
 
-    IEtudiantService etudiantService;
+   public IEtudiantService etudiantService;
 
 
     @GetMapping("/retrieve-all-etudiants")
