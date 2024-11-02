@@ -7,6 +7,4 @@ WORKDIR /app
 
 COPY target/tp-foyer-1.0.0.jar app.jar
 
-RUN apt-get update && apt-get install -y netcat
-
 ENTRYPOINT ["java", "-jar", "app.jar"]
