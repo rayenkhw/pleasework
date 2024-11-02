@@ -16,7 +16,6 @@ public class BlocServiceImpl  implements IBlocService {
 
     BlocRepository blocRepository;
 
-    @Scheduled(fixedRate = 30000)
     public List<Bloc> retrieveAllBlocs() {
         return blocRepository.findAll();
     }
