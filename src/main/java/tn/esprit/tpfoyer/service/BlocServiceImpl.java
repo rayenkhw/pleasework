@@ -16,12 +16,12 @@ public class BlocServiceImpl  implements IBlocService {
 
     BlocRepository blocRepository;
 
+
+
+
+    @Override
     public List<Bloc> retrieveAllBlocs() {
-        return blocRepository.findAll();
-    }
-    @Transactional
-    public List<Bloc> retrieveBlocsSelonCapacite(long c) {
-        return blocRepository.findAll();
+        return List.of();
     }
 
     @Transactional
