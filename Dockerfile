@@ -4,6 +4,6 @@ EXPOSE 8082
 
 WORKDIR /appDorra
 
-COPY target/tp-foyer-1.0.0.jar appfile.jar
+COPY target/foyer-5.0.0.jar appfile.jar
 
 ENTRYPOINT ["java", "-jar", "appfile.jar"]
