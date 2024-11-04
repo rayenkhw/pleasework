@@ -1,0 +1,30 @@
+<form [formGroup]="reservationForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="anneeUniversitaire">Academic Year:</label>
+    <input id="anneeUniversitaire" formControlName="anneeUniversitaire" type="date" />
+  </div>
+
+  <div>
+    <label for="estValide">Is Valid:</label>
+    <input id="estValide" formControlName="estValide" type="checkbox" />
+  </div>
+
+  <div>
+    <label for="chambre">Chambre:</label>
+    <select id="chambre" formControlName="chambre">
+      <option *ngFor="let chambre of chambres" [ngValue]="chambre">{{ chambre.numeroChambre }}</option>
+    </select>
+  </div>
+
+  <div>
+    <label for="etudiants">Etudiants:</label>
+    <select id="etudiants" formControlName="etudiants" multiple>
+      <option *ngFor="let etudiant of etudiants" [ngValue]="etudiant">{{ etudiant.nomEt }}</option>
+    </select>
+  </div>
+
+  <button type="submit" [disabled]="reservationForm.invalid">Add Reservation</button>
+</form>
+
+<div *ngIf="successMessage">{{ successMessage }}</div>
+<div *ngIf="errorMessage">{{ errorMessage }}</div>

@@ -1,0 +1,71 @@
+/* Container for the form */
+form {
+  max-width: 600px; /* Limit the width of the form */
+  margin: 0 auto; /* Center the form on the page */
+  padding: 20px; /* Add some padding */
+  border: 1px solid #ccc; /* Light border around the form */
+  border-radius: 5px; /* Rounded corners */
+  background-color: #f9f9f9; /* Light background color */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
+}
+
+/* Styling for each input field and label */
+div {
+  margin-bottom: 15px; /* Space between form elements */
+}
+
+label {
+  display: block; /* Make labels block elements for better layout */
+  font-weight: bold; /* Make label text bold */
+  margin-bottom: 5px; /* Space below the label */
+}
+
+input[type="date"],
+input[type="checkbox"],
+select {
+  width: 100%; /* Make inputs and selects full width */
+  padding: 10px; /* Padding inside input fields */
+  border: 1px solid #ccc; /* Border for input fields */
+  border-radius: 4px; /* Rounded corners for inputs */
+  box-sizing: border-box; /* Include padding in width calculation */
+}
+
+/* Specific styling for the checkbox */
+input[type="checkbox"] {
+  width: auto; /* Keep checkbox size default */
+}
+
+/* Styles for the submit button */
+button {
+  background-color: #007bff; /* Bootstrap primary color */
+  color: white; /* White text color */
+  border: none; /* No border */
+  border-radius: 4px; /* Rounded corners */
+  padding: 10px 15px; /* Padding around button text */
+  cursor: pointer; /* Pointer cursor on hover */
+  font-size: 16px; /* Slightly larger font size */
+}
+
+button:disabled {
+  background-color: #ccc; /* Grey out button when disabled */
+  cursor: not-allowed; /* Not allowed cursor */
+}
+
+/* Success and error message styles */
+div[ngIf] {
+  margin-top: 10px; /* Space above messages */
+  padding: 10px; /* Padding around messages */
+  border-radius: 4px; /* Rounded corners for messages */
+}
+
+.success {
+  background-color: #d4edda; /* Light green background for success */
+  color: #155724; /* Dark green text color */
+  border: 1px solid #c3e6cb; /* Green border */
+}
+
+.error {
+  background-color: #f8d7da; /* Light red background for error */
+  color: #721c24; /* Dark red text color */
+  border: 1px solid #f5c6cb; /* Red border */
+}

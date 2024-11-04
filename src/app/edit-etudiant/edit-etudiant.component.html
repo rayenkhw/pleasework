@@ -1,0 +1,50 @@
+<div class="container">
+  <h2>Edit Etudiant</h2>
+  <form [formGroup]="etudiantForm" (ngSubmit)="onSubmit()">
+    <div *ngIf="loading">Loading...</div>
+    <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+
+    <div class="form-group">
+      <label for="nomEt">Nom:</label>
+      <input id="nomEt" formControlName="nomEt" class="form-control" />
+      <div *ngIf="etudiantForm.get('nomEt')?.invalid && (etudiantForm.get('nomEt')?.dirty || etudiantForm.get('nomEt')?.touched)">
+        <small class="text-danger" *ngIf="etudiantForm.get('nomEt')?.touched">Nom is required.</small>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="prenomEt">Prénom:</label>
+      <input id="prenomEt" formControlName="prenomEt" class="form-control" />
+      <div *ngIf="etudiantForm.get('prenomEt')?.invalid && (etudiantForm.get('prenomEt')?.dirty || etudiantForm.get('prenomEt')?.touched)">
+        <small class="text-danger" *ngIf="etudiantForm.get('prenomEt')?.touched">Prénom is required.</small>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="cin">CIN:</label>
+      <input id="cin" type="number" formControlName="cin" class="form-control" />
+      <div *ngIf="etudiantForm.get('cin')?.invalid && (etudiantForm.get('cin')?.dirty || etudiantForm.get('cin')?.touched)">
+        <small class="text-danger" *ngIf="etudiantForm.get('cin')?.touched">CIN is required.</small>
+        <small class="text-danger" *ngIf="etudiantForm.get('cin')">CIN must be a positive number.</small>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="ecole">École:</label>
+      <input id="ecole" formControlName="ecole" class="form-control" />
+      <div *ngIf="etudiantForm.get('ecole')?.invalid && (etudiantForm.get('ecole')?.dirty || etudiantForm.get('ecole')?.touched)">
+        <small class="text-danger" *ngIf="etudiantForm.get('ecole')?.touched">École is required.</small>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="dateNaissance">Date de Naissance:</label>
+      <input id="dateNaissance" type="date" formControlName="dateNaissance" class="form-control" />
+      <div *ngIf="etudiantForm.get('dateNaissance')?.invalid && (etudiantForm.get('dateNaissance')?.dirty || etudiantForm.get('dateNaissance')?.touched)">
+        <small class="text-danger" *ngIf="etudiantForm.get('dateNaissance')?.touched">Date de Naissance is required.</small>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="loading || etudiantForm.invalid">Save Changes</button>
+  </form>
+</div>
