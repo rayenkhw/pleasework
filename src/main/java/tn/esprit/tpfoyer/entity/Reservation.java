@@ -18,8 +18,12 @@ public class Reservation implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idReservation;
+    private String dateDebut;
+    private String dateFin;
+    private String note;
+    private String nom;
+    private String prenom;
+    private String email;
 
-    private String nomFoyer;
-    private String adresse;
 
 }
