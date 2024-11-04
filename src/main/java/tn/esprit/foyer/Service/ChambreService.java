@@ -14,6 +14,7 @@ public interface ChambreService {
     Chambre retrieveChambre (long idChambre);
     public Set<Chambre> getChambresParNomBloc (String nomBloc );
     public long nbrChambreParTypeEtBloc(Chambre.TypeChambre type, long idBloc );
+    void removeChambre (long idChambre);
 
 
 }

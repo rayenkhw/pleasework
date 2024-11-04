@@ -61,4 +61,9 @@ public class ChambreServiceImpl  implements ChambreService {
             return 0;
         }
     }
+
+    @Override
+    public void removeChambre(long idChambre) {
+        blocRepository.deleteById(idChambre);
+    }
 }

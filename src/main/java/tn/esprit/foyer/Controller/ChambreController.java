@@ -47,5 +47,10 @@ public class ChambreController {
         long blocs = chambreService.nbrChambreParTypeEtBloc(type,id);
         return blocs;
     }
+    @DeleteMapping("/delete/{id}")
+    public void deleteChambre(@PathVariable Long id){
+        chambreService.removeChambre(id);
+
+    }
 
 }
