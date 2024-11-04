@@ -17,7 +17,8 @@ public class Reservation implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idUniversity;
+    private Long idReservation;
+
     private String nomFoyer;
     private String adresse;
 

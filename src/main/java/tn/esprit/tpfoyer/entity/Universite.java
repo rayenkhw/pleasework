@@ -16,6 +16,7 @@ public class Universite {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idUniversity;
+
     private String NomFoyer;
     private String Adresse;
 
