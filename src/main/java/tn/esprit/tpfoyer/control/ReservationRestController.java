@@ -1,6 +1,7 @@
 package tn.esprit.tpfoyer.control;
 
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.tpfoyer.entity.Reservation;
@@ -14,6 +15,7 @@ import java.util.List;
 @RequestMapping("/reservation")
 public class ReservationRestController {
 
+    @Autowired
     public IReservationService reservationService;
 
     // http://localhost:8089/tpfoyer/reservation/retrieve-all-reservations
