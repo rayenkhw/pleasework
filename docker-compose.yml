@@ -3,7 +3,7 @@ services:
     image: mysql:8.0
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
-      MYSQL_DATABASE: "db"
+      MYSQL_DATABASE: "foyer"
     ports:
       - "3306:3306"
     networks:
