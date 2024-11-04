@@ -33,6 +33,11 @@ public class FoyerServiceImpl implements FoyerService {
         return foyerRepository.findById(idFoyer).orElse(null);
     }
 
+    @Override
+    public void removeFoyer(Long idFoyer) {
+        foyerRepository.deleteById(idFoyer);
+    }
+
     @Transactional
     public void archiverFoyer(long idFoyer) {
         foyerRepository.UpdateArchiver(idFoyer);

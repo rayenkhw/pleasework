@@ -37,6 +37,11 @@ public class FoyerController {
     public Foyer updateFoyer( @RequestBody Foyer f){
         return foyerService.updateFoyer(f);
     }
+    @DeleteMapping("/delete/{id}")
+    public void deleteEtudiant(@PathVariable Long id){
+        foyerService.removeFoyer(id);
+
+    }
     @PutMapping("/SetArchiveTrue/{id}")
     public void ArchiveFoyer(@PathVariable Long id){
         foyerService.archiverFoyer(id);
