@@ -30,13 +30,10 @@ public class ReservationRestController {
     }
 
 
-
-
     // http://localhost:8089/tpfoyer/reservation/add-reservation
     @PostMapping("/add-reservation")
     public Reservation addReservation(@RequestBody Reservation r) {
-        Reservation reservation = reservationService.addReservation(r);
-        return reservation;
+        return reservationService.addReservation(r);
     }
 
     // http://localhost:8089/tpfoyer/reservation/remove-reservation/{reservation-id}
