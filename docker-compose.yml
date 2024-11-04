@@ -11,8 +11,8 @@ services:
       - mysql-data:/var/lib/mysql
     healthcheck:
       test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
-      interval: 10s
-      timeout: 20s
+      interval: 12s
+      timeout: 10s
       retries: 10
 
   spring-boot-app:
@@ -34,5 +34,3 @@ services:
 networks:
   app-network:
     driver: bridge
-volumes:
-  mysql-data:
