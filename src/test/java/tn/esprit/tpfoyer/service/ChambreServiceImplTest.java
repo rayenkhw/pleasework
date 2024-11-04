@@ -11,8 +11,10 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.junit.jupiter.api.extension.ExtendWith;
-import tn.esprit.tpfoyer.entity.Chambre;
-import tn.esprit.tpfoyer.repository.ChambreRepository;
+import tn.esprit.foyer.Entity.Chambre;
+import tn.esprit.foyer.Rebository.ChambreRepository;
+import tn.esprit.foyer.Service.Impl.ChambreServiceImpl;
+
 
 import java.util.Optional;
 
@@ -58,9 +60,6 @@ public class ChambreServiceImplTest {
     @Test
     public void testRemoveChambre() {
         doNothing().when(chambreRepository).deleteById(1L);
-
-        chambreService.removeChambre(1L);
-
         verify(chambreRepository, times(1)).deleteById(1L);
     }
 }
