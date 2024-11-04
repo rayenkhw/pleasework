@@ -8,7 +8,7 @@ LABEL authors="MANSOUR"
 WORKDIR /app
 
 # Copier le fichier JAR dans l'image
-COPY target/tp*.jar app.jar
+COPY target/foyer-5.0.0.jar app.jar
 
 # Exposer le port de l'application
 EXPOSE 8082
