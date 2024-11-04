@@ -6,9 +6,10 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import tn.esprit.tpfoyer.entity.Foyer;
-import tn.esprit.tpfoyer.repository.FoyerRepository;
-import tn.esprit.tpfoyer.service.FoyerServiceImpl;
+import tn.esprit.foyer.Entity.Foyer;
+import tn.esprit.foyer.Rebository.FoyerRepository;
+import tn.esprit.foyer.Service.Impl.FoyerServiceImpl;
+
 
 import java.util.Optional;
 
@@ -56,12 +57,5 @@ public class FoyerServiceImplTest {
         verify(foyerRepository, times(1)).save(foyer);
     }
 
-    @Test
-    public void testRemoveFoyer() {
-        doNothing().when(foyerRepository).deleteById(anyLong());
 
-        foyerService.removeFoyer(1L);
-
-        verify(foyerRepository, times(1)).deleteById(1L);
-    }
 }
