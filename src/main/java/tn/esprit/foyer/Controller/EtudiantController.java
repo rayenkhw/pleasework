@@ -4,6 +4,7 @@ import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.foyer.Entity.Etudiant;
@@ -18,6 +19,7 @@ import java.util.List;
 @RequestMapping("/etudiant")
 @CrossOrigin("*")
 public class EtudiantController {
+
     EtudiantService etudiantService;
     @GetMapping("/all")
     public List<Etudiant> getAll() {
