@@ -35,6 +35,7 @@ public class ReservationRestController {
     // http://localhost:8089/tpfoyer/reservation/add-reservation
     @PostMapping("/add-reservation")
     public Reservation addReservation(@RequestBody Reservation r) {
+        System.out.println("Received reservation: " + r);
          reservationService.addReservation(r);
          return r;
     }
