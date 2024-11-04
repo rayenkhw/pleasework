@@ -1,0 +1,37 @@
+version: '3.8'  # Spécifiez la version de Docker Compose
+
+services:
+  mysql:
+    image: mysql:8.0
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_DATABASE: "db"
+    ports:
+      - "3306:3306"
+    networks:
+      - app-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  spring-boot-app:
+    image: sarrahamoudi/foyer:latest  # Utilisez votre image Docker
+    environment:
+      SPRING_DATASOURCE_URL: "jdbc:mysql://mysql:3306/db?createDatabaseIfNotExist=true"
+      SPRING_DATASOURCE_USERNAME: "root"
+      SPRING_DATASOURCE_PASSWORD: ""  # Laissez vide si vous n'utilisez pas de mot de passe
+      SERVER_PORT: "8082"
+      SERVER_SERVLET_CONTEXT_PATH: "/tpfoyer"
+    ports:
+      - "8082:8082"
+    depends_on:
+      mysql:
+        condition: service_healthy  # Attend que le service mysql soit prêt
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
