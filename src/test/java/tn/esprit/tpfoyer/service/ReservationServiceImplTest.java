@@ -10,8 +10,9 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import tn.esprit.tpfoyer.entity.Reservation;
 import tn.esprit.tpfoyer.repository.ReservationRepository;
-import tn.esprit.tpfoyer.service.ReservationServiceImpl;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -34,7 +35,6 @@ public class ReservationServiceImplTest {
     @BeforeEach
     public void setup() {
         reservation = new Reservation();
-
     }
 
     @Test
@@ -44,7 +44,6 @@ public class ReservationServiceImplTest {
         Reservation result = reservationService.retrieveReservation("1");
 
         assertNotNull(result);
-
         verify(reservationRepository, times(1)).findById("1");
     }
 
@@ -55,7 +54,6 @@ public class ReservationServiceImplTest {
         Reservation result = reservationService.addReservation(reservation);
 
         assertNotNull(result);
-
         verify(reservationRepository, times(1)).save(reservation);
     }
 
@@ -66,5 +64,27 @@ public class ReservationServiceImplTest {
         reservationService.removeReservation("1");
 
         verify(reservationRepository, times(1)).deleteById("1");
+    }
+
+    @Test
+    public void testRetrieveAllReservations() {
+        List<Reservation> reservations = Arrays.asList(new Reservation(), new Reservation());
+        when(reservationRepository.findAll()).thenReturn(reservations);
+
+        List<Reservation> result = reservationService.retrieveAllReservations();
+
+        assertNotNull(result);
+        assertEquals(2, result.size());
+        verify(reservationRepository, times(1)).findAll();
+    }
+
+    @Test
+    public void testModifyReservation() {
+        when(reservationRepository.save(any(Reservation.class))).thenReturn(reservation);
+
+        Reservation result = reservationService.modifyReservation(reservation);
+
+        assertNotNull(result);
+        verify(reservationRepository, times(1)).save(reservation);
     }
 }
