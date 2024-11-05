@@ -18,7 +18,7 @@ services:
       retries: 5
 
   spring-boot-app:
-    image: rayenkh98/work
+    image: rayenkh98/hmm
     environment:
       SPRING_DATASOURCE_URL: "jdbc:postgresql://postgres:5432/rayen"
       SPRING_DATASOURCE_USERNAME: "postgres"
@@ -32,6 +32,15 @@ services:
         condition: service_healthy
     networks:
       - app-network
+
+
+  angular-frontend:
+    image: rayenkh98/front
+    ports:
+      - "4200:4200"
+    networks:
+      - app-network
+
 
 networks:
   app-network:
