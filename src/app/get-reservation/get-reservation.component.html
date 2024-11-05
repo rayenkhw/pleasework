@@ -1,1 +1,36 @@
-<p>get-reservation works!</p>
+<div class="reservations-container">
+  <h2>Reservations List</h2>
+
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+
+  <table *ngIf="reservations.length > 0" class="reservations-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Date Debut</th>
+        <th>Date Fin</th>
+        <th>Note</th>
+        <th>Nom</th>
+        <th>Prenom</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let reservation of reservations">
+        <td>{{ reservation.idReservation }}</td>
+        <td>{{ reservation.dateDebut }}</td>
+        <td>{{ reservation.dateFin }}</td>
+        <td>{{ reservation.note }}</td>
+        <td>{{ reservation.nom }}</td>
+        <td>{{ reservation.prenom }}</td>
+        <td>{{ reservation.email }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="reservations.length === 0" class="no-reservations">
+    No reservations found.
+  </div>
+</div>

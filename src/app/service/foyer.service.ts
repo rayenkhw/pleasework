@@ -17,7 +17,7 @@ export class FoyerService {
   private apiUrlchambre = 'http://localhost:8082/chambres';
   private apiUrlEtudiant = 'http://localhost:8082/etudiant';
   private apiUrlfoyer = 'http://localhost:8082/foyer';
-  private apiUrlreservation = 'http://localhost:8082/reservations';
+  private apiUrlreservation = 'http://localhost:8082/reservation';
 
   constructor(private http: HttpClient) {}
   addBloc(bloc: Bloc): Observable<Bloc> {
@@ -121,20 +121,23 @@ getFoyerById(id: number): Observable<Foyer> {
 }
 //reservation
 addReservation(reservation: Reservation): Observable<Reservation> {
-  return this.http.post<Reservation>(`${this.apiUrlreservation}/ajouterReservation`, reservation, {
+  return this.http.post<Reservation>(`${this.apiUrlreservation}/add-reservation`, reservation, {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
   });
 }
 getAllReservation(): Observable<Reservation[]> {
-  return this.http.get<Reservation[]>(`${this.apiUrlreservation}/all`);
+  return this.http.get<Reservation[]>(`${this.apiUrlreservation}/retrieve-all-reservations`);
 
 }
 
 updateReservation(reservation: Reservation): Observable<Reservation> {
-  const url = `${this.apiUrlreservation}/update`;
+  const url = `${this.apiUrlreservation}/modify-reservation`;
   return this.http.put<Reservation>(url, reservation);
 }
 getReservationById(id: number): Observable<Reservation> {
-  return this.http.get<Reservation>(`${this.apiUrlreservation}/${id}`);
+  return this.http.get<Reservation>(`${this.apiUrlreservation}/retrieve-reservation/${id}`);
+}
+deleteReservation(reservation: Reservation): Observable<any> {
+  return this.http.delete(`${this.apiUrlreservation}/delete/${reservation.idReservation}`);
 }
 }

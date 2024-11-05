@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Chambre } from '../models/Chambre';
-import { Etudiant } from '../models/Etudiant';
 import { Reservation } from '../models/Reservation';
+import { Router } from '@angular/router';
 import { FoyerService } from '../service/foyer.service';
 
 @Component({
@@ -12,64 +11,46 @@ import { FoyerService } from '../service/foyer.service';
 })
 export class AddReservationComponent implements OnInit {
   reservationForm: FormGroup;
-  chambres: Chambre[] = [];
-  etudiants: Etudiant[] = [];
   successMessage: string = '';
   errorMessage: string = '';
 
   constructor(
-    private fb: FormBuilder,
-    private foyerService: FoyerService
+    private formBuilder: FormBuilder,
+    private reservationService: FoyerService,
+    private router: Router
   ) {
-    this.reservationForm = this.fb.group({
-      anneeUniversitaire: ['', Validators.required],
-      estValide: [false],
-      chambre: ['', Validators.required],
-      etudiants: [[]] // assuming this is a multi-select
+    this.reservationForm = this.formBuilder.group({
+      dateDebut: ['', Validators.required],
+      dateFin: ['', Validators.required],
+      note: [''],
+      nom: ['', Validators.required],
+      prenom: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]]
     });
   }
 
-  ngOnInit(): void {
-    this.getChambres();
-    this.getEtudiants();
-  }
+  ngOnInit(): void {}
 
-  getChambres(): void {
-    this.foyerService.getAllChambre().subscribe(
-      (data) => this.chambres = data,
-      (error) => console.error('Error fetching chambres', error)
-    );
-  }
-
-  getEtudiants(): void {
-    this.foyerService.getAllEtudiants().subscribe(
-      (data) => this.etudiants = data,
-      (error) => console.error('Error fetching etudiants', error)
-    );
-  }
-
+  // Method to handle form submission
   onSubmit(): void {
-    if (this.reservationForm.invalid) {
-      return;
+    if (this.reservationForm.valid) {
+      const reservation: Reservation = this.reservationForm.value;
+
+      this.reservationService.addReservation(reservation).subscribe(
+        response => {
+          this.successMessage = 'Reservation added successfully!';
+          this.errorMessage = '';
+          // Optionally, navigate to another route or reset the form
+          this.reservationForm.reset();
+        },
+        error => {
+          this.errorMessage = 'There was an error adding the reservation. Please try again.';
+          this.successMessage = '';
+        }
+      );
+    } else {
+      this.errorMessage = 'Please fill out the required fields correctly.';
+      this.successMessage = '';
     }
-
-    const reservation: Reservation = {
-      idReservation: 0, // backend should generate the ID
-      anneeUniversitaire: this.reservationForm.value.anneeUniversitaire,
-      estValide: this.reservationForm.value.estValide,
-      chambre: this.reservationForm.value.chambre,
-      etudiants: this.reservationForm.value.etudiants
-    };
-
-    this.foyerService.addReservation(reservation).subscribe(
-      () => {
-        this.successMessage = 'Reservation added successfully!';
-        this.reservationForm.reset();
-      },
-      (error) => {
-        this.errorMessage = 'An error occurred while adding the reservation.';
-        console.error(error);
-      }
-    );
   }
 }

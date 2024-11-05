@@ -1,24 +1,27 @@
-import { Chambre } from './Chambre';
-import { Etudiant } from './Etudiant';
-
 export class Reservation {
-    idReservation: number;
-    anneeUniversitaire: Date;
-    estValide: boolean;
-    chambre?: Chambre;
-    etudiants?: Etudiant[];
+  idReservation?: number;
+  dateDebut: string;
+  dateFin: string;
+  note: string;
+  nom: string;
+  prenom: string;
+  email: string;
 
-    constructor(
-        idReservation: number,
-        anneeUniversitaire: Date,
-        estValide: boolean,
-        chambre?: Chambre,
-        etudiants?: Etudiant[]
-    ) {
-        this.idReservation = idReservation;
-        this.anneeUniversitaire = anneeUniversitaire;
-        this.estValide = estValide;
-        this.chambre = chambre;
-        this.etudiants = etudiants;
-    }
+  constructor(
+      dateDebut: string,
+      dateFin: string,
+      note: string,
+      nom: string,
+      prenom: string,
+      email: string,
+      idReservation?: number
+  ) {
+      this.dateDebut = dateDebut;
+      this.dateFin = dateFin;
+      this.note = note;
+      this.nom = nom;
+      this.prenom = prenom;
+      this.email = email;
+      this.idReservation = idReservation;
+  }
 }
