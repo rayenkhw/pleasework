@@ -17,7 +17,7 @@ export class FoyerService {
   private apiUrlchambre = 'http://localhost:8082/chambres';
   private apiUrlEtudiant = 'http://localhost:8082/etudiant';
   private apiUrlfoyer = 'http://localhost:8082/foyer';
-  private apiUrlreservation = 'http://localhost:8082/reservation';
+  private apiUrlreservation = 'http://192.168.1.229:8089/tpfoyer/reservation';
 
   constructor(private http: HttpClient) {}
   addBloc(bloc: Bloc): Observable<Bloc> {
