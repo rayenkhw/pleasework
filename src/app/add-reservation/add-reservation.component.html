@@ -1,0 +1,30 @@
+<form [formGroup]="reservationForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label>Date Debut:</label>
+    <input formControlName="dateDebut" type="date" required />
+  </div>
+  <div>
+    <label>Date Fin:</label>
+    <input formControlName="dateFin" type="date" required />
+  </div>
+  <div>
+    <label>Note:</label>
+    <textarea formControlName="note"></textarea>
+  </div>
+  <div>
+    <label>Nom:</label>
+    <input formControlName="nom" required />
+  </div>
+  <div>
+    <label>Prenom:</label>
+    <input formControlName="prenom" required />
+  </div>
+  <div>
+    <label>Email:</label>
+    <input formControlName="email" type="email" required />
+  </div>
+  <button type="submit">Add Reservation</button>
+</form>
+
+<div *ngIf="successMessage" class="success-message">{{ successMessage }}</div>
+<div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>

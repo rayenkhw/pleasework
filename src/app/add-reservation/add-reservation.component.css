@@ -1,0 +1,64 @@
+/* Container for the form */
+form {
+  max-width: 600px; /* Limits the width of the form */
+  margin: 20px auto; /* Centers the form horizontally */
+  padding: 20px; /* Adds space inside the form */
+  border: 1px solid #ccc; /* Adds a light border */
+  border-radius: 8px; /* Rounds the corners */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Adds shadow for depth */
+  background-color: #f9f9f9; /* Light background color */
+}
+
+/* Styles for the input fields and text area */
+input[type="text"],
+input[type="email"],
+input[type="date"],
+textarea {
+  width: 100%; /* Full width */
+  padding: 10px; /* Padding inside the input */
+  margin: 8px 0; /* Margin above and below */
+  border: 1px solid #ccc; /* Light border */
+  border-radius: 4px; /* Rounds the corners */
+  font-size: 14px; /* Font size */
+}
+
+/* Styles for the submit button */
+button {
+  background-color: #007bff; /* Bootstrap primary color */
+  color: white; /* Text color */
+  padding: 10px 15px; /* Padding inside the button */
+  border: none; /* No border */
+  border-radius: 4px; /* Rounds the corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  font-size: 16px; /* Font size */
+  transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+/* Button hover effect */
+button:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+}
+
+/* Styles for success and error messages */
+.success-message {
+  color: green; /* Green text for success */
+  margin-top: 10px; /* Space above */
+  font-weight: bold; /* Bold text */
+}
+
+.error-message {
+  color: red; /* Red text for errors */
+  margin-top: 10px; /* Space above */
+  font-weight: bold; /* Bold text */
+}
+
+/* Responsive design adjustments */
+@media (max-width: 600px) {
+  form {
+      padding: 15px; /* Less padding on small screens */
+  }
+
+  button {
+      width: 100%; /* Full width button on small screens */
+  }
+}

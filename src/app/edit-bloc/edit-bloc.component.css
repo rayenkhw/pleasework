@@ -1,0 +1,85 @@
+/* Container for the form */
+.container {
+    max-width: 600px; /* Limit the width of the form */
+    margin: 0 auto; /* Center the form on the page */
+    padding: 20px; /* Add some padding around the container */
+    background-color: #f9f9f9; /* Light background color */
+    border: 1px solid #ddd; /* Light gray border */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Header styling */
+h2 {
+    text-align: center; /* Center the heading */
+    color: #333; /* Dark gray color for the heading */
+}
+
+/* Loading message */
+.loading {
+    text-align: center; /* Center the loading text */
+    font-size: 1.2em; /* Slightly larger font */
+    color: #007bff; /* Blue color for emphasis */
+}
+
+/* Alert for error messages */
+.alert {
+    margin-bottom: 20px; /* Space below the alert */
+}
+
+/* Form group styling */
+.form-group {
+    margin-bottom: 15px; /* Space between form groups */
+}
+
+/* Label styling */
+label {
+    font-weight: bold; /* Bold labels */
+    margin-bottom: 5px; /* Space below the label */
+    display: block; /* Ensure labels are block elements */
+}
+
+/* Input styling */
+input.form-control {
+    width: 100%; /* Full width for inputs */
+    padding: 10px; /* Padding inside inputs */
+    border: 1px solid #ccc; /* Light border */
+    border-radius: 4px; /* Rounded corners */
+    transition: border-color 0.2s; /* Smooth transition for border color */
+}
+
+/* Change border color on focus */
+input.form-control:focus {
+    border-color: #007bff; /* Change border color on focus */
+    outline: none; /* Remove default outline */
+}
+
+/* Error message styling */
+.text-danger {
+    font-size: 0.9em; /* Slightly smaller font for error messages */
+    color: #dc3545; /* Red color for error */
+}
+
+/* Button styling */
+button.btn-primary {
+    width: 100%; /* Full width button */
+    padding: 10px; /* Padding inside button */
+    background-color: #007bff; /* Primary blue color */
+    border: none; /* Remove default border */
+    border-radius: 4px; /* Rounded corners */
+    color: white; /* White text color */
+    font-size: 1em; /* Font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.2s; /* Smooth transition for background color */
+}
+
+/* Change button color on hover */
+button.btn-primary:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Disable button styling */
+button[disabled] {
+    background-color: #d6d6d6; /* Gray background when disabled */
+    cursor: not-allowed; /* Not-allowed cursor */
+}

@@ -1,0 +1,33 @@
+<div class="container">
+  <h2>List of Etudiants</h2>
+  <div *ngIf="loading">Loading students...</div>
+  <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+
+  <table class="table table-bordered" *ngIf="!loading && !error">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nom</th>
+        <th>Prénom</th>
+        <th>CIN</th>
+        <th>École</th>
+        <th>Date de Naissance</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let etudiant of etudiants">
+        <td>{{ etudiant.idEtudiant }}</td>
+        <td>{{ etudiant.nomEt }}</td>
+        <td>{{ etudiant.prenomEt }}</td>
+        <td>{{ etudiant.cin }}</td>
+        <td>{{ etudiant.ecole }}</td>
+        <td>{{ etudiant.dateNaissance | date:'shortDate' }}</td>
+        <td>
+          <a [routerLink]="['/edit-etudiant', etudiant.idEtudiant]" class="btn btn-primary">Edit</a>
+          <button class="btn btn-danger" (click)="deleteEtudiant(etudiant)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

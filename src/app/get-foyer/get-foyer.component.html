@@ -1,0 +1,25 @@
+<div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Capacity</th>
+      <th>Archived</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let foyer of foyers">
+      <td>{{ foyer.idFoyer }}</td>
+      <td>{{ foyer.nomFoyer }}</td>
+      <td>{{ foyer.capacityFoyer }}</td>
+      <td>{{ foyer.archiverFoyer ? 'Yes' : 'No' }}</td>
+      <td>
+        <a [routerLink]="['/edit-foyer', foyer.idFoyer]" class="btn btn-primary">Edit</a>
+        <button (click)="deleteFoyer(foyer.idFoyer)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

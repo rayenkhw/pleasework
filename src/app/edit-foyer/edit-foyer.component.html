@@ -1,0 +1,18 @@
+<div *ngIf="foyer">
+  <h2>Edit Foyer</h2>
+  <form (ngSubmit)="saveChanges()">
+    <label for="nomFoyer">Foyer Name:</label>
+    <input id="nomFoyer" [(ngModel)]="foyer.nomFoyer" name="nomFoyer" />
+
+    <label for="capacityFoyer">Capacity:</label>
+    <input id="capacityFoyer" [(ngModel)]="foyer.capacityFoyer" name="capacityFoyer" type="number" />
+
+    <label>
+      <input type="checkbox" [(ngModel)]="foyer.archiverFoyer" name="archiverFoyer" />
+      Archived
+    </label>
+
+    <button type="submit">Save Changes</button>
+  </form>
+</div>
+<div *ngIf="errorMessage">{{ errorMessage }}</div>

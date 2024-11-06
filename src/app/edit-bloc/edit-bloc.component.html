@@ -1,0 +1,31 @@
+<div class="container">
+  <h2>Edit Bloc</h2>
+
+  <div *ngIf="loading" class="loading">
+    <p>Loading bloc details...</p>
+  </div>
+
+  <div *ngIf="error" class="alert alert-danger">
+    {{ error }}
+  </div>
+
+  <form [formGroup]="blocForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="nomBloc">Bloc Name:</label>
+      <input id="nomBloc" type="text" formControlName="nomBloc" class="form-control" />
+      <div *ngIf="blocForm.get('nomBloc')?.invalid && blocForm.get('nomBloc')?.touched" class="text-danger">
+        Bloc name is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="capacityBloc">Capacity:</label>
+      <input id="capacityBloc" type="number" formControlName="capacityBloc" class="form-control" />
+      <div *ngIf="blocForm.get('capacityBloc')?.invalid && blocForm.get('capacityBloc')?.touched" class="text-danger">
+        Capacity is required and must be greater than 0.
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="blocForm.invalid">Update Bloc</button>
+  </form>
+</div>

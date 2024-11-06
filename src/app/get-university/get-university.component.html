@@ -1,0 +1,38 @@
+<div class="container">
+  <h2>List of University</h2>
+
+  <!-- Display loading message -->
+  <div *ngIf="loading" class="loading">
+    Loading blocs...
+  </div>
+
+  <!-- Display error message -->
+  <div *ngIf="error" class="text-danger">
+    {{ error }}
+  </div>
+
+  <!-- Display the list of blocs -->
+  <table *ngIf="!loading && !error" class="table table-bordered">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>University Name</th>
+        <th>Address</th>
+        <th>Actions</th> <!-- Add a header for the action buttons -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let u of universitys">
+        <td>{{ u.idUniversite }}</td>
+        <td>{{ u.nomUniversite }}</td>
+        <td>{{ u.adresse }}</td>
+        <td>
+          <!-- Update Button -->
+          <button (click)="updateBloc(u)" class="btn btn-warning btn-sm">Update</button>
+          <!-- Delete Button -->
+          <button (click)="deleteBloc(u)" class="btn btn-danger btn-sm">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
